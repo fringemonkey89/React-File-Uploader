@@ -22,10 +22,17 @@ const FileUpload = () => {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
-            })
+            });
+
+            const { fileName, filePath} = res.data
+            setUpLoadedFile({ fileName, filePath})
         }
         catch(err){
-
+            if(err.response.status === 500){
+                console.log('there is a problem with the server')
+            } else {
+                console.log(err.response.data.msg)
+            }
         }
     }
 

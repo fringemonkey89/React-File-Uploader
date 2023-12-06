@@ -6,7 +6,7 @@ app.use(fileUpload())
 
 //endpoint
 app.post('/upload', (req, res) => {
-    if(req.file === null) {
+    if(req.files === null) {
         return res.status(400).json({ msg: 'no file upload'})
     }
 
@@ -18,7 +18,7 @@ app.post('/upload', (req, res) => {
             return res.status(500).send(err)
         }
 
-        res.json({ fileName: file.name, filePath: `/uploads/${file.name}`});
+        res.json({ fileName: file.name, filePath: `/upload/${file.name}`});
     })
 })
 
