@@ -1,6 +1,7 @@
 const express = require('express')
 const fileUpload = require('express-fileupload')
 
+const PORT = 5000;
 const app = express();
 app.use(fileUpload())
 
@@ -12,16 +13,16 @@ app.post('/upload', (req, res) => {
 
     const file = req.files.file;
 
-    file.mv(`${__dirname}/client/public/upload/${file.name}`, err => {
+    file.mv(`${__dirname}/client/public/uploads/${file.name}`, err => {
         if(err) {
             console.error(err);
             return res.status(500).send(err)
         }
 
-        res.json({ fileName: file.name, filePath: `/upload/${file.name}`});
+        res.json({ fileName: file.name, filePath: `/uploads/${file.name}`});
     })
 })
 
-app.listen(5000, () => 
-console.log('server is listening to port 5000')
+app.listen(PORT, () => 
+console.log(`server is listening to port ${PORT}`)
 )

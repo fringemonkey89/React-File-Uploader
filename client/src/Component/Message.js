@@ -17,7 +17,7 @@ const Message = ({ msg }) => {
     )
 }
 
-Message.PropTypes ={
+Message.propTypes ={
     msg: PropTypes.string.isRequired
 };
 

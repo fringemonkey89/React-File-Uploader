@@ -15,7 +15,7 @@ const Progress = ({ percentage }) => {
     )
 }
 
-Message.PropTypes ={
+Progress.propTypes ={
     percentage: PropTypes.number.isRequired
 };
 
